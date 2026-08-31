@@ -24,6 +24,17 @@
     <span class="search-icon">🔍</span>
     <input type="search" id="searchInput" class="search-input" placeholder="搜索轮胎型号..." autocomplete="off">
   </div>
+  <div class="filter-bar">
+    <select id="filterType" class="input filter-select" title="类型筛选">
+      <option value="all">全部</option>
+      <option value="image">含图片</option>
+      <option value="video">含视频</option>
+    </select>
+    <select id="filterSort" class="input filter-select" title="排序">
+      <option value="time">按更新时间</option>
+      <option value="name">按名称</option>
+    </select>
+  </div>
   <div id="modelList" class="list"></div>
   <div id="emptyTip" class="empty-tip hidden">
     <div class="empty-icon">🛞</div>
