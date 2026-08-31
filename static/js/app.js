@@ -9,6 +9,8 @@
   const $ = (id) => document.getElementById(id);
   const els = {
     search: $("searchInput"),
+    filterType: $("filterType"),
+    filterSort: $("filterSort"),
     modelList: $("modelList"),
     empty: $("emptyTip"),
     pageList: $("pageList"),
@@ -62,7 +64,17 @@
 
   function renderList() {
     const q = els.search.value.trim().toLowerCase();
-    const list = q ? allModels.filter((m) => m.name.toLowerCase().includes(q)) : allModels;
+    const ftype = els.filterType.value;
+    const sort = els.filterSort.value;
+    let list = allModels.slice();
+    if (q) list = list.filter((m) => m.name.toLowerCase().includes(q));
+    if (ftype === "image") list = list.filter((m) => m.image_count > 0);
+    else if (ftype === "video") list = list.filter((m) => m.video_count > 0);
+    if (sort === "name") {
+      list.sort((a, b) => a.name.localeCompare(b.name, "zh-Hans-CN"));
+    } else {
+      list.sort((a, b) => String(b.updated || "").localeCompare(String(a.updated || "")));
+    }
     els.modelList.innerHTML = "";
     els.empty.classList.toggle("hidden", list.length > 0);
     list.forEach((m) => {
@@ -160,6 +172,8 @@
 
   /* ---------- 事件 ---------- */
   els.search.addEventListener("input", () => { clearTimeout(loadModels._t); loadModels._t = setTimeout(renderList, 250); });
+  els.filterType.addEventListener("change", renderList);
+  els.filterSort.addEventListener("change", renderList);
   els.btnBackDetail.addEventListener("click", () => { currentDetail = null; showPage("pageList"); });
   els.btnDownloadZip.addEventListener("click", downloadZip);
   document.querySelectorAll(".tab").forEach((t) => {
