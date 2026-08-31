@@ -16,7 +16,10 @@
     <span class="header-logo">🛞</span>
     <span class="header-title">轮胎型号工作台</span>
   </div>
-  <span class="chip-btn">云端只读</span>
+  <div class="header-actions">
+    <span id="authBadge" class="chip-btn">云端只读</span>
+    <button id="btnSettings" class="chip-btn" title="管理设置">⚙</button>
+  </div>
 </header>
 
 <main id="pageList" class="page">
@@ -47,6 +50,7 @@
   <div class="sub-header">
     <button id="btnBackDetail" class="back-btn">‹</button>
     <div id="detailTitle" class="sub-title"></div>
+    <button id="btnDeleteModel" class="chip-btn chip-danger delete-required hidden">删除型号</button>
     <button id="btnDownloadZip" class="chip-btn chip-primary">打包</button>
   </div>
   <div class="tabs">
@@ -57,6 +61,20 @@
 </section>
 
 <div id="toast" class="toast hidden"></div>
+
+<div id="settingsModal" class="modal hidden">
+  <div class="modal-mask" data-close="settings"></div>
+  <div class="modal-body">
+    <h3 class="modal-title">管理设置</h3>
+    <p class="modal-tip">填写 GitHub 个人访问 Token（需仓库读写权限）后可删除云端数据。Token 仅保存在本机浏览器 localStorage。</p>
+    <input type="password" id="ghTokenInput" class="input" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" autocomplete="off">
+    <div class="modal-actions">
+      <button id="btnSaveToken" class="chip-btn chip-primary">保存</button>
+      <button id="btnClearToken" class="chip-btn chip-danger">清除</button>
+      <button class="chip-btn" data-close="settings">关闭</button>
+    </div>
+  </div>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
 <script src="static/js/app.js"></script>
