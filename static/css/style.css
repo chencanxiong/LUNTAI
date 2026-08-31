@@ -25,6 +25,7 @@ body {
   box-shadow: 0 2px 10px rgba(47,111,237,.25);
 }
 .header-brand { display: flex; align-items: center; gap: 8px; }
+.header-actions { display: flex; align-items: center; gap: 8px; }
 .header-logo { font-size: 22px; }
 .header-title { font-size: 16px; font-weight: 600; letter-spacing: .5px; }
 .chip-btn {
@@ -39,6 +40,7 @@ body {
 }
 .chip-btn:active { background: rgba(255,255,255,.3); }
 .chip-primary { background: #fff; color: #2f6fed; border: none; text-decoration: none; font-weight: 600; }
+.chip-danger { background: #e5484d; color: #fff; border: none; text-decoration: none; font-weight: 600; }
 .chip-btn-placeholder { width: 62px; }
 
 /* ---------- 页面容器 ---------- */
@@ -256,6 +258,8 @@ body {
 .btn-primary:active { background: #1f5bd8; }
 .btn-outline { background: #fff; color: #2f6fed; border: 1px solid #2f6fed; }
 .btn-danger { background: #e5484d; color: #fff; }
+.btn-danger:active { background: #c93a3f; }
+.btn:disabled { opacity: .55; cursor: not-allowed; }
 .btn-ghost { background: transparent; color: #8a94a3; }
 .btn-sm { padding: 6px 14px; font-size: 12px; border-radius: 8px; }
 .full { width: 100%; margin-top: 12px; }
@@ -368,6 +372,8 @@ body {
 @keyframes sheetUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
 .modal-title { font-size: 17px; font-weight: 600; margin-bottom: 8px; }
 .modal-tip { font-size: 13px; color: #8a94a3; margin-bottom: 14px; }
+.modal-actions { display: flex; gap: 10px; margin-top: 18px; }
+.modal-actions .chip-btn { flex: 1; text-align: center; }
 
 /* ---------- 底部导航 ---------- */
 .tabbar {
