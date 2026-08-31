@@ -131,6 +131,23 @@ body {
 }
 .fab:active { background: #1f5bd8; }
 
+/* ---------- 筛选栏 ---------- */
+.filter-bar {
+  display: flex;
+  gap: 8px;
+  padding: 0 14px 10px;
+  background: #f2f4f8;
+}
+.filter-select {
+  flex: 1;
+  padding: 9px 10px;
+  font-size: 13px;
+  color: #1c2430;
+  border-radius: 10px;
+  cursor: pointer;
+  background: #fff;
+}
+
 /* ---------- 型号列表 ---------- */
 .list { padding: 2px 14px 10px; display: flex; flex-direction: column; gap: 10px; }
 .model-card {
@@ -396,6 +413,10 @@ body {
 
 /* ---------- 桌面适配 ---------- */
 @media (min-width: 768px) {
+  .filter-bar {
+    max-width: 900px;
+    margin: 0 auto;
+  }
   .list {
     max-width: 900px;
     margin: 0 auto;
