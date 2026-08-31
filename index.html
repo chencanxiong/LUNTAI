@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#2f6fed">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="icon" href="/static/icon.svg">
+<title>轮胎型号工作台</title>
+<link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+
+<header class="app-header">
+  <div class="header-brand">
+    <span class="header-logo">🛞</span>
+    <span class="header-title">轮胎型号工作台</span>
+  </div>
+  <span class="chip-btn">云端只读</span>
+</header>
+
+<main id="pageList" class="page">
+  <div class="search-bar">
+    <span class="search-icon">🔍</span>
+    <input type="search" id="searchInput" class="search-input" placeholder="搜索轮胎型号..." autocomplete="off">
+  </div>
+  <div id="modelList" class="list"></div>
+  <div id="emptyTip" class="empty-tip hidden">
+    <div class="empty-icon">🛞</div>
+    <p>暂无型号数据</p>
+    <p class="empty-sub">主设备在本地工作台添加数据并发布后，此处自动更新</p>
+  </div>
+</main>
+
+<section id="pageDetail" class="page page-detail hidden">
+  <div class="sub-header">
+    <button id="btnBackDetail" class="back-btn">‹</button>
+    <div id="detailTitle" class="sub-title"></div>
+    <button id="btnDownloadZip" class="chip-btn chip-primary">打包</button>
+  </div>
+  <div class="tabs">
+    <button class="tab active" data-tab="images">照片</button>
+    <button class="tab" data-tab="videos">视频</button>
+  </div>
+  <div id="detailContent" class="detail-content"></div>
+</section>
+
+<div id="toast" class="toast hidden"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+<script src="static/js/app.js"></script>
+</body>
+</html>
